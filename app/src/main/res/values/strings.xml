@@ -2,6 +2,9 @@
     <string name="app_name">Filime</string>
     <string name="title_activity_happy_birthday">HappyBirthday</string>
     <string name="jetpack_compose_logo_description">Android logo wearing a jet</string>
+    <string name="my_profile_description">My profile picture</string>
+    <string name="my_full_name">Maryam Masoumi</string>
+    <string name="my_title">Android Developer</string>
     <string name="introduction">This is my demo of the exercises for Jetpack Compose Tutorial. Select which part of the app you want to checkout.</string>
     <string name="unit_one">Unit 1 Exercise</string>
     <string name="unit_one_intro">Choose which one of unit 1 exercises you want to see.</string>
@@ -11,4 +14,8 @@
     <string name="birthday_card_signature">Maryam</string>
     <string name="title_activity_unit_one_menu">UnitOneMenu</string>
     <string name="title_activity_business_card">BusinessCard</string>
+    <string name="icon">icon</string>
+    <string name="phone_number">+989351011643</string>
+    <string name="random_id">\@Nacls</string>
+    <string name="email">mmasoumi15@gmail.com</string>
 </resources>

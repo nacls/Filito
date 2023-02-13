@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Filime</string>
+    <string name="title_activity_happy_birthday">HappyBirthday</string>
+    <string name="jetpack_compose_logo_description">Android logo wearing a jet</string>
+    <string name="introduction">This is my demo of the exercises for Jetpack Compose Tutorial. Select which part of the app you want to checkout.</string>
+    <string name="unit_one">Unit 1 Exercise</string>
 </resources>

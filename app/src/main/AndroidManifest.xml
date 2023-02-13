@@ -12,6 +12,11 @@
         android:theme="@style/Theme.Filime"
         tools:targetApi="31">
         <activity
+            android:name=".unit1.HappyBirthday"
+            android:exported="false"
+            android:label="@string/title_activity_happy_birthday"
+            android:theme="@style/Theme.Filime" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

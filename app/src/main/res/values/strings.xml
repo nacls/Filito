@@ -4,4 +4,11 @@
     <string name="jetpack_compose_logo_description">Android logo wearing a jet</string>
     <string name="introduction">This is my demo of the exercises for Jetpack Compose Tutorial. Select which part of the app you want to checkout.</string>
     <string name="unit_one">Unit 1 Exercise</string>
+    <string name="unit_one_intro">Choose which one of unit 1 exercises you want to see.</string>
+    <string name="birthday_card">Birthday Card</string>
+    <string name="business_card">Business Card</string>
+    <string name="happy_birthday">Happy Birthday!</string>
+    <string name="birthday_card_signature">Maryam</string>
+    <string name="title_activity_unit_one_menu">UnitOneMenu</string>
+    <string name="title_activity_business_card">BusinessCard</string>
 </resources>

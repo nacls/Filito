@@ -29,8 +29,7 @@ class UnitOneMenu : ComponentActivity() {
             FilimeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
                     ContentList(onBirthdayCardClick = {
                         val intent = Intent(this, HappyBirthday::class.java)
@@ -50,14 +49,8 @@ fun ContentList(onBirthdayCardClick: () -> Unit, onBusinessCardClick: () -> Unit
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = stringResource(id = R.string.unit_one_intro),
-            textAlign = TextAlign.Justify,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .fillMaxWidth()
-                .padding(end = 24.dp, start = 24.dp, top = 16.dp),
-            fontSize = 18.sp,
+        MenuIntro(
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         Column(
             modifier = Modifier
@@ -65,13 +58,23 @@ fun ContentList(onBirthdayCardClick: () -> Unit, onBusinessCardClick: () -> Unit
                 .padding(16.dp)
         ) {
             CustomMenuItem(
-                onClick = onBirthdayCardClick,
-                title = stringResource(id = R.string.birthday_card)
+                onClick = onBirthdayCardClick, title = stringResource(id = R.string.birthday_card)
             )
             CustomMenuItem(
-                onClick = onBusinessCardClick,
-                title = stringResource(id = R.string.business_card)
+                onClick = onBusinessCardClick, title = stringResource(id = R.string.business_card)
             )
         }
     }
+}
+
+@Composable
+fun MenuIntro(modifier: Modifier) {
+    Text(
+        text = stringResource(id = R.string.unit_one_intro),
+        textAlign = TextAlign.Justify,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(end = 24.dp, start = 24.dp, top = 16.dp),
+        fontSize = 18.sp,
+    )
 }

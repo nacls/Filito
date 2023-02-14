@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun WideButtonWithClickCallback(title: String, onClick: ClickCallback) {
+fun WideButtonWithClickCallback(title: String, onClick: OnClick) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -25,4 +25,4 @@ fun WideButtonWithClickCallback(title: String, onClick: ClickCallback) {
     }
 }
 
-typealias ClickCallback = () -> Unit
+typealias OnClick = () -> Unit

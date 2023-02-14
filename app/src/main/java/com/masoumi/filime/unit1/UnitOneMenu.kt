@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.masoumi.filime.R
-import com.masoumi.filime.ui.composable.ClickCallback
+import com.masoumi.filime.ui.composable.OnClick
 import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 
@@ -46,7 +46,7 @@ class UnitOneMenu : ComponentActivity() {
 }
 
 @Composable
-fun ContentList(onBirthdayCardClick: ClickCallback, onBusinessCardClick: ClickCallback) {
+fun ContentList(onBirthdayCardClick: OnClick, onBusinessCardClick: OnClick) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {

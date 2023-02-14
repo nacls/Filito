@@ -19,7 +19,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.masoumi.filime.R
-import com.masoumi.filime.ui.composable.CustomMenuItem
+import com.masoumi.filime.ui.composable.ClickCallback
+import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 
 class UnitOneMenu : ComponentActivity() {
@@ -45,7 +46,7 @@ class UnitOneMenu : ComponentActivity() {
 }
 
 @Composable
-fun ContentList(onBirthdayCardClick: () -> Unit, onBusinessCardClick: () -> Unit) {
+fun ContentList(onBirthdayCardClick: ClickCallback, onBusinessCardClick: ClickCallback) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -57,11 +58,11 @@ fun ContentList(onBirthdayCardClick: () -> Unit, onBusinessCardClick: () -> Unit
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            CustomMenuItem(
-                onClick = onBirthdayCardClick, title = stringResource(id = R.string.birthday_card)
+            WideButtonWithClickCallback(
+                title = stringResource(id = R.string.birthday_card), onClick = onBirthdayCardClick
             )
-            CustomMenuItem(
-                onClick = onBusinessCardClick, title = stringResource(id = R.string.business_card)
+            WideButtonWithClickCallback(
+                title = stringResource(id = R.string.business_card), onClick = onBusinessCardClick
             )
         }
     }

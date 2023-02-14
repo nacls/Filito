@@ -59,24 +59,9 @@ fun GeneralInformation(modifier: Modifier) {
     Column(
         modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ProfileImage()
-        Text(
-            text = stringResource(id = R.string.my_full_name),
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(end = 24.dp, start = 24.dp, top = 16.dp),
-            fontSize = 24.sp,
-        )
-        Text(
-            text = stringResource(id = R.string.my_title),
-            textAlign = TextAlign.Center,
-            color = Orange700,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(end = 24.dp, start = 24.dp, top = 8.dp),
-            fontSize = 18.sp,
-        )
+        CircularImage()
+        BigCenteredText()
+        OrangeCenteredText()
     }
 }
 
@@ -114,13 +99,38 @@ fun ContactInformationItem(modifier: Modifier, value: String, icon: ImageVector)
     }
 }
 @Composable
-fun ProfileImage(){
+fun CircularImage(){
     Image(
         painterResource(R.drawable.my_profile),
         contentDescription = stringResource(id = R.string.my_profile_description),
         modifier = Modifier
             .fillMaxWidth(0.5f)
             .clip(CircleShape)
+    )
+}
+
+@Composable
+fun BigCenteredText(){
+    Text(
+        text = stringResource(id = R.string.my_full_name),
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(end = 24.dp, start = 24.dp, top = 16.dp),
+        fontSize = 24.sp,
+    )
+}
+
+@Composable
+fun OrangeCenteredText(){
+    Text(
+        text = stringResource(id = R.string.my_title),
+        textAlign = TextAlign.Center,
+        color = Orange700,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(end = 24.dp, start = 24.dp, top = 8.dp),
+        fontSize = 18.sp,
     )
 }
 

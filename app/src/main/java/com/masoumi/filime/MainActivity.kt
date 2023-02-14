@@ -20,7 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.masoumi.filime.ui.composable.CustomMenuItem
+import com.masoumi.filime.ui.composable.ClickCallback
+import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.UnitOneMenu
 
@@ -45,7 +46,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ContentList(onUnitOneClick: () -> Unit) {
+fun ContentList(onUnitOneClick: ClickCallback) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -68,7 +69,10 @@ fun ContentList(onUnitOneClick: () -> Unit) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            CustomMenuItem(onClick = onUnitOneClick, title = stringResource(id = R.string.unit_one))
+            WideButtonWithClickCallback(
+                title = stringResource(id = R.string.unit_one),
+                onClick = onUnitOneClick
+            )
         }
     }
 }

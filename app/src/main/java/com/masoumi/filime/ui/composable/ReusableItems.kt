@@ -11,16 +11,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CustomMenuItem(onClick: () -> Unit, title: String) {
+fun WideButtonWithClickCallback(title: String, onClick: ClickCallback) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp), onClick = onClick
     ) {
         Text(
-            title,
+            text = title,
             fontWeight = FontWeight.Bold,
             fontSize = 18.sp
         )
     }
 }
+
+typealias ClickCallback = () -> Unit

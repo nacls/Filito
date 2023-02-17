@@ -7,6 +7,12 @@
     <string name="my_title">Android Developer</string>
     <string name="introduction">This is my demo of the exercises for Jetpack Compose Tutorial. Select which part of the app you want to checkout.</string>
     <string name="unit_one">Unit 1 Exercise</string>
+    <string name="unit_two">Unit 2 Exercise</string>
+    <string name="unit_three">Unit 3 Exercise</string>
+    <string name="unit_four">Unit 4 Exercise</string>
+    <string name="unit_five">Unit 5 Exercise</string>
+    <string name="unit_six">Unit 6 Exercise</string>
+    <string name="unit_seven">Unit 7 Exercise</string>
     <string name="unit_one_intro">Choose which one of unit 1 exercises you want to see.</string>
     <string name="birthday_card">Birthday Card</string>
     <string name="business_card">Business Card</string>

@@ -32,13 +32,20 @@ class UnitOneMenu : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    ContentList(onBirthdayCardClick = {
-                        val intent = Intent(this, HappyBirthday::class.java)
-                        startActivity(intent)
-                    }, onBusinessCardClick = {
-                        val intent = Intent(this, BusinessCard::class.java)
-                        startActivity(intent)
-                    })
+                    ContentList(
+                        onButtonClick = {
+                            var intent: Intent? = null
+                            when (it) {
+                                1 -> intent = Intent(this, HappyBirthday::class.java)
+                                2 -> intent = Intent(this, BusinessCard::class.java)
+                                else -> {
+                                    // Do nothing, this shouldn't happen
+                                }
+                            }
+                            if (intent != null)
+                                startActivity(intent)
+                        }
+                    )
                 }
             }
         }
@@ -46,25 +53,12 @@ class UnitOneMenu : ComponentActivity() {
 }
 
 @Composable
-fun ContentList(onBirthdayCardClick: OnClick, onBusinessCardClick: OnClick) {
+fun ContentList(onButtonClick: OnClick) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuIntro(
-            modifier = Modifier.align(Alignment.CenterHorizontally)
-        )
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            WideButtonWithClickCallback(
-                title = stringResource(id = R.string.birthday_card), onClick = onBirthdayCardClick
-            )
-            WideButtonWithClickCallback(
-                title = stringResource(id = R.string.business_card), onClick = onBusinessCardClick
-            )
-        }
+        MenuIntro(modifier = Modifier.align(Alignment.CenterHorizontally))
+        WideButtonList(onButtonClick = onButtonClick)
     }
 }
 
@@ -78,4 +72,24 @@ fun MenuIntro(modifier: Modifier) {
             .padding(end = 24.dp, start = 24.dp, top = 16.dp),
         fontSize = 18.sp,
     )
+}
+
+@Composable
+fun WideButtonList(onButtonClick: OnClick) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.birthday_card),
+            onClick = onButtonClick,
+            id = 1
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.business_card),
+            onClick = onButtonClick,
+            id = 2
+        )
+    }
 }

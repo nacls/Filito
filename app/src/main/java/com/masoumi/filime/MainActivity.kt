@@ -34,11 +34,24 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    ContentList(
-                        onUnitOneClick = {
-                            val intent = Intent(this, UnitOneMenu::class.java)
+                    ContentList(onButtonClick =
+                    {
+                        var intent: Intent? = null
+                        when (it) {
+                            1 -> intent = Intent(this, UnitOneMenu::class.java)
+                            2 -> {}
+                            3 -> {}
+                            4 -> {}
+                            5 -> {}
+                            6 -> {}
+                            7 -> {}
+                            else -> {
+                                // Do nothing, this shouldn't happen
+                            }
+                        }
+                        if (intent != null)
                             startActivity(intent)
-                        })
+                    })
                 }
             }
         }
@@ -46,34 +59,84 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ContentList(onUnitOneClick: OnClick) {
+fun ContentList(
+    onButtonClick: OnClick
+) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painterResource(R.drawable.jetpack_logo),
-            contentDescription = stringResource(id = R.string.jetpack_compose_logo_description),
-            modifier = Modifier.fillMaxWidth(0.5f)
-        )
-        Text(
-            text = stringResource(id = R.string.introduction),
-            textAlign = TextAlign.Justify,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .fillMaxWidth()
-                .padding(end = 24.dp, start = 24.dp, top = 16.dp),
-            fontSize = 18.sp,
-        )
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            WideButtonWithClickCallback(
-                title = stringResource(id = R.string.unit_one),
-                onClick = onUnitOneClick
-            )
-        }
+        RectangularIntroImage()
+        JustifiedIntroText(modifier = Modifier.align(Alignment.CenterHorizontally))
+        WideButtonsList(onButtonClick = onButtonClick)
     }
 }
+
+@Composable
+fun RectangularIntroImage() {
+    Image(
+        painterResource(R.drawable.jetpack_logo),
+        contentDescription = stringResource(id = R.string.jetpack_compose_logo_description),
+        modifier = Modifier.fillMaxWidth(0.5f)
+    )
+}
+
+@Composable
+fun JustifiedIntroText(modifier: Modifier) {
+    Text(
+        text = stringResource(id = R.string.introduction),
+        textAlign = TextAlign.Justify,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(end = 24.dp, start = 24.dp, top = 16.dp),
+        fontSize = 18.sp,
+    )
+}
+
+@Composable
+fun WideButtonsList(
+    onButtonClick: OnClick
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_one),
+            onClick = onButtonClick,
+            id = 1
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_two),
+            onClick = onButtonClick,
+            id = 2
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_three),
+            onClick = onButtonClick,
+            id = 3
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_four),
+            onClick = onButtonClick,
+            id = 4
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_five),
+            onClick = onButtonClick,
+            id = 5
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_six),
+            onClick = onButtonClick,
+            id = 6
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_seven),
+            onClick = onButtonClick,
+            id = 7
+        )
+    }
+}
+
 

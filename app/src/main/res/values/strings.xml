@@ -35,4 +35,7 @@
     <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <string name="affirmation10">I will be present in all the moments that this day brings.</string>
     <string name="title_activity_affirmation_list">AffirmationList</string>
+    <string name="expand_button_content_description">expand</string>
+    <string name="says_who">Says who?</string>
+    <string name="me">me!</string>
 </resources>

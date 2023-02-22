@@ -24,6 +24,7 @@ import com.masoumi.filime.ui.composable.OnClick
 import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.UnitOneMenu
+import com.masoumi.filime.unit3.AffirmationList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         when (it) {
                             1 -> intent = Intent(this, UnitOneMenu::class.java)
                             2 -> {}
-                            3 -> {}
+                            3 -> intent = Intent(this, AffirmationList::class.java)
                             4 -> {}
                             5 -> {}
                             6 -> {}
@@ -49,8 +50,7 @@ class MainActivity : ComponentActivity() {
                                 // Do nothing, this shouldn't happen
                             }
                         }
-                        if (intent != null)
-                            startActivity(intent)
+                        intent?.let { startActivity(it) }
                     })
                 }
             }

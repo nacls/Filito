@@ -12,6 +12,11 @@
         android:theme="@style/Theme.Filime"
         tools:targetApi="31">
         <activity
+            android:name=".unit3.AffirmationList"
+            android:exported="false"
+            android:label="@string/title_activity_affirmation_list"
+            android:theme="@style/Theme.Filime" />
+        <activity
             android:name=".unit1.BusinessCard"
             android:exported="false"
             android:label="@string/title_activity_business_card"

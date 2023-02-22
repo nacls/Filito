@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,19 +38,14 @@ class AffirmationList : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FilimeTheme {
-                Scaffold(
-                    topBar = {
-                        AffirmationTopAppBar()
-                    }
+                Surface(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    color = MaterialTheme.colors.background
                 ) {
-                    Surface(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(it),
-                        color = MaterialTheme.colors.background
-                    ) {
-                        AffirmationList(affirmationList = Datasource().loadAffirmations())
-                    }
+                    AffirmationList(
+                        affirmationList = Datasource().loadAffirmations()
+                    )
                 }
             }
         }
@@ -70,46 +66,65 @@ fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
     Card(
         modifier = modifier
-            .padding(8.dp)
-            .clip(Shapes.medium)
-            .background(MaterialTheme.colors.surface),
+            .padding(8.dp),
         elevation = 4.dp
     ) {
-        Column(modifier = Modifier.animateContentSize(animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        ))) {
-            Image(
-                painter = painterResource(affirmation.imageResourceId),
-                contentDescription = stringResource(affirmation.stringResourceId),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(194.dp)
-                    .clip(Shapes.medium),
-                contentScale = ContentScale.Crop
+        Column(
+            modifier = Modifier.animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
             )
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            ) {
-                Text(
-                    text = stringResource(affirmation.stringResourceId),
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .weight(20.0f, true),
-                    style = MaterialTheme.typography.body1
-                )
-                ItemButton(
-                    expanded = expanded,
-                    onClick = { expanded = !expanded },
-                    modifier = Modifier.weight(1.0f, false)
-                )
-            }
+        ) {
+            RoundedCornerMaxWidthImage(affirmation = affirmation)
+            TextWithExpansionIcon(
+                affirmation = affirmation,
+                expanded = expanded,
+                onClick = { expanded = !expanded })
             if (expanded)
                 AffirmationExpanded()
 
         }
+    }
+}
+
+@Composable
+private fun RoundedCornerMaxWidthImage(affirmation: Affirmation) {
+    Image(
+        painter = painterResource(affirmation.imageResourceId),
+        contentDescription = stringResource(affirmation.stringResourceId),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(194.dp)
+            .clip(Shapes.medium),
+        contentScale = ContentScale.Crop
+    )
+}
+
+@Composable
+private fun TextWithExpansionIcon(
+    affirmation: Affirmation,
+    expanded: Boolean,
+    onClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Text(
+            text = stringResource(affirmation.stringResourceId),
+            modifier = Modifier
+                .padding(8.dp)
+                .weight(20.0f, true),
+            style = MaterialTheme.typography.body1
+        )
+        ItemButton(
+            expanded = expanded,
+            onClick = onClick,
+            modifier = Modifier.weight(1.0f, false)
+        )
     }
 }
 
@@ -156,7 +171,7 @@ fun AffirmationTopAppBar(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(color = MaterialTheme.colors.background)
+            .background(color = Color.White)
     ) {
         Image(
             modifier = Modifier.width(100.dp),

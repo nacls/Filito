@@ -1,4 +1,4 @@
-package com.masoumi.filime.unit1
+package com.masoumi.filime.unit4
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,21 +10,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.masoumi.filime.R
 import com.masoumi.filime.ui.composable.MenuIntro
 import com.masoumi.filime.ui.composable.OnClick
-import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
+import com.masoumi.filime.unit1.BusinessCard
+import com.masoumi.filime.unit1.HappyBirthday
 
-class UnitOneMenu : ComponentActivity() {
+class UnitFourMenu : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -37,14 +35,12 @@ class UnitOneMenu : ComponentActivity() {
                         onButtonClick = {
                             var intent: Intent? = null
                             when (it) {
-                                1 -> intent = Intent(this, HappyBirthday::class.java)
-                                2 -> intent = Intent(this, BusinessCard::class.java)
+                                1 -> {}
                                 else -> {
                                     // Do nothing, this shouldn't happen
                                 }
                             }
-                            if (intent != null)
-                                startActivity(intent)
+                            intent?.let { startActivity(it) }
                         }
                     )
                 }
@@ -58,10 +54,8 @@ fun ContentList(onButtonClick: OnClick) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuIntro(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            stringResource(id = R.string.unit_one_intro)
-        )
+        MenuIntro(modifier = Modifier.align(Alignment.CenterHorizontally),
+            stringResource(id = R.string.unit_four_intro))
         WideButtonList(onButtonClick = onButtonClick)
     }
 }
@@ -73,15 +67,6 @@ fun WideButtonList(onButtonClick: OnClick) {
             .fillMaxWidth()
             .padding(16.dp)
     ) {
-        WideButtonWithClickCallback(
-            title = stringResource(id = R.string.birthday_card),
-            onClick = onButtonClick,
-            id = 1
-        )
-        WideButtonWithClickCallback(
-            title = stringResource(id = R.string.business_card),
-            onClick = onButtonClick,
-            id = 2
-        )
+
     }
 }

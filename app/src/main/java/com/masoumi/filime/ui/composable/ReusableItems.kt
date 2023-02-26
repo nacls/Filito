@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -24,6 +25,18 @@ fun WideButtonWithClickCallback(title: String, onClick: OnClick, id: Int) {
             fontSize = 18.sp
         )
     }
+}
+
+@Composable
+fun MenuIntro(modifier: Modifier, text: String) {
+    Text(
+        text = text,
+        textAlign = TextAlign.Justify,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(end = 24.dp, start = 24.dp, top = 16.dp),
+        fontSize = 18.sp,
+    )
 }
 
 typealias OnClick = (Int) -> Unit

@@ -11,21 +11,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.masoumi.filime.ui.composable.MenuIntro
 import com.masoumi.filime.ui.composable.OnClick
 import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.UnitOneMenu
 import com.masoumi.filime.unit2.CalculateTip
 import com.masoumi.filime.unit3.AffirmationList
+import com.masoumi.filime.unit4.UnitFourMenu
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +42,7 @@ class MainActivity : ComponentActivity() {
                             1 -> intent = Intent(this, UnitOneMenu::class.java)
                             2 -> intent = Intent(this, CalculateTip::class.java)
                             3 -> intent = Intent(this, AffirmationList::class.java)
-                            4 -> {}
+                            4 -> intent = Intent(this, UnitFourMenu::class.java)
                             5 -> {}
                             6 -> {}
                             7 -> {}
@@ -67,7 +66,10 @@ fun ContentList(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
         RectangularIntroImage()
-        JustifiedIntroText(modifier = Modifier.align(Alignment.CenterHorizontally))
+        MenuIntro(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            stringResource(id = R.string.introduction)
+        )
         WideButtonsList(onButtonClick = onButtonClick)
     }
 }
@@ -78,18 +80,6 @@ fun RectangularIntroImage() {
         painterResource(R.drawable.jetpack_logo),
         contentDescription = stringResource(id = R.string.jetpack_compose_logo_description),
         modifier = Modifier.fillMaxWidth(0.5f)
-    )
-}
-
-@Composable
-fun JustifiedIntroText(modifier: Modifier) {
-    Text(
-        text = stringResource(id = R.string.introduction),
-        textAlign = TextAlign.Justify,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(end = 24.dp, start = 24.dp, top = 16.dp),
-        fontSize = 18.sp,
     )
 }
 

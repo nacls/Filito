@@ -24,6 +24,7 @@ import com.masoumi.filime.ui.composable.OnClick
 import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.UnitOneMenu
+import com.masoumi.filime.unit2.CalculateTip
 import com.masoumi.filime.unit3.AffirmationList
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         var intent: Intent? = null
                         when (it) {
                             1 -> intent = Intent(this, UnitOneMenu::class.java)
-                            2 -> {}
+                            2 -> intent = Intent(this, CalculateTip::class.java)
                             3 -> intent = Intent(this, AffirmationList::class.java)
                             4 -> {}
                             5 -> {}

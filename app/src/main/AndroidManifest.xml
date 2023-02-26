@@ -17,6 +17,11 @@
             android:label="@string/title_activity_affirmation_list"
             android:theme="@style/Theme.Filime" />
         <activity
+            android:name=".unit2.CalculateTip"
+            android:exported="false"
+            android:label="@string/title_activity_calculate_tip"
+            android:theme="@style/Theme.Filime" />
+        <activity
             android:name=".unit1.BusinessCard"
             android:exported="false"
             android:label="@string/title_activity_business_card"

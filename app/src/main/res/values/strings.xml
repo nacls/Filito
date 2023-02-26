@@ -24,4 +24,10 @@
     <string name="phone_number">+989351011643</string>
     <string name="random_id">\@Nacls</string>
     <string name="email">mmasoumi15@gmail.com</string>
+    <string name="title_activity_calculate_tip">CalculateTip</string>
+    <string name="calculate_tip">Calculate Tip</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="tip_amount">Tip amount: %s</string>
+    <string name="how_was_the_service">Tip (%)</string>
+    <string name="round_up_tip">Round up tip?</string>
 </resources>

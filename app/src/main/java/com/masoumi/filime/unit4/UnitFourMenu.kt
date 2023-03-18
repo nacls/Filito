@@ -18,9 +18,11 @@ import androidx.compose.ui.unit.dp
 import com.masoumi.filime.R
 import com.masoumi.filime.ui.composable.MenuIntro
 import com.masoumi.filime.ui.composable.OnClick
+import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.BusinessCard
 import com.masoumi.filime.unit1.HappyBirthday
+import com.masoumi.filime.unit4.dessertclicker.DessertClicker
 
 class UnitFourMenu : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +37,7 @@ class UnitFourMenu : ComponentActivity() {
                         onButtonClick = {
                             var intent: Intent? = null
                             when (it) {
-                                1 -> {}
+                                1 -> intent = Intent(this, DessertClicker::class.java)
                                 else -> {
                                     // Do nothing, this shouldn't happen
                                 }
@@ -67,6 +69,10 @@ fun WideButtonList(onButtonClick: OnClick) {
             .fillMaxWidth()
             .padding(16.dp)
     ) {
-
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.dessert_clicker),
+            onClick = onButtonClick,
+            id = 1
+        )
     }
 }

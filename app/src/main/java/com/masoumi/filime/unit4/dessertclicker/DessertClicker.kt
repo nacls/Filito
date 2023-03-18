@@ -42,10 +42,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -64,7 +61,7 @@ import com.masoumi.filime.R
 import com.masoumi.filime.ui.theme.FilimeTheme
 
 // tag for logging
-private const val TAG = "MainActivity"
+private const val TAG = "Dessert Clicker"
 
 class DessertClicker : ComponentActivity() {
 
@@ -164,6 +161,7 @@ private fun DessertClickerApp(
 ) {
 
     var revenue by rememberSaveable { mutableStateOf(0) }
+    //var revenue by remember { mutableStateOf(0) }
     var dessertsSold by rememberSaveable { mutableStateOf(0) }
 
     val currentDessertIndex by rememberSaveable { mutableStateOf(0) }

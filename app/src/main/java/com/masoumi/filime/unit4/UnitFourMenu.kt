@@ -23,6 +23,7 @@ import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit1.BusinessCard
 import com.masoumi.filime.unit1.HappyBirthday
 import com.masoumi.filime.unit4.dessertclicker.DessertClicker
+import com.masoumi.filime.unit4.unscramble.UnscrambleGame
 
 class UnitFourMenu : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class UnitFourMenu : ComponentActivity() {
                             var intent: Intent? = null
                             when (it) {
                                 1 -> intent = Intent(this, DessertClicker::class.java)
+                                2 -> intent = Intent(this, UnscrambleGame::class.java)
                                 else -> {
                                     // Do nothing, this shouldn't happen
                                 }
@@ -73,6 +75,11 @@ fun WideButtonList(onButtonClick: OnClick) {
             title = stringResource(id = R.string.dessert_clicker),
             onClick = onButtonClick,
             id = 1
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unscramble),
+            onClick = onButtonClick,
+            id = 2
         )
     }
 }

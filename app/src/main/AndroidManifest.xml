@@ -22,6 +22,11 @@
             android:label="@string/dessert_clicker"
             android:theme="@style/Theme.Filime" />
         <activity
+            android:name=".unit4.unscramble.UnscrambleGame"
+            android:exported="false"
+            android:label="@string/unscramble"
+            android:theme="@style/Theme.Filime" />
+        <activity
             android:name=".unit3.AffirmationList"
             android:exported="false"
             android:label="@string/title_activity_affirmation_list"

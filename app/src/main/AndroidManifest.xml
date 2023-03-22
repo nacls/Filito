@@ -17,6 +17,11 @@
             android:label="@string/title_activity_affirmation_list"
             android:theme="@style/Theme.Filime" />
         <activity
+            android:name=".unit4.reply.Reply"
+            android:exported="false"
+            android:label="@string/reply"
+            android:theme="@style/Theme.Filime" />
+        <activity
             android:name=".unit4.cupcake.Cupcake"
             android:exported="false"
             android:label="@string/cupcake"

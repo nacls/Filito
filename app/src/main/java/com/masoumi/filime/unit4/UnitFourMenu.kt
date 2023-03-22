@@ -22,6 +22,7 @@ import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
 import com.masoumi.filime.unit4.cupcake.Cupcake
 import com.masoumi.filime.unit4.dessertclicker.DessertClicker
+import com.masoumi.filime.unit4.reply.Reply
 import com.masoumi.filime.unit4.unscramble.UnscrambleGame
 
 class UnitFourMenu : ComponentActivity() {
@@ -40,6 +41,7 @@ class UnitFourMenu : ComponentActivity() {
                                 1 -> intent = Intent(this, DessertClicker::class.java)
                                 2 -> intent = Intent(this, UnscrambleGame::class.java)
                                 3 -> intent = Intent(this, Cupcake::class.java)
+                                4 -> intent = Intent(this, Reply::class.java)
                                 else -> {
                                     // Do nothing, this shouldn't happen
                                 }
@@ -58,8 +60,10 @@ fun ContentList(onButtonClick: OnClick) {
     Column(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        MenuIntro(modifier = Modifier.align(Alignment.CenterHorizontally),
-            stringResource(id = R.string.unit_four_intro))
+        MenuIntro(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            stringResource(id = R.string.unit_four_intro)
+        )
         WideButtonList(onButtonClick = onButtonClick)
     }
 }
@@ -85,6 +89,11 @@ fun WideButtonList(onButtonClick: OnClick) {
             title = stringResource(id = R.string.cupcake),
             onClick = onButtonClick,
             id = 3
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.reply),
+            onClick = onButtonClick,
+            id = 4
         )
     }
 }

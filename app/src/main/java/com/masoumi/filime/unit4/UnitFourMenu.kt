@@ -20,8 +20,7 @@ import com.masoumi.filime.ui.composable.MenuIntro
 import com.masoumi.filime.ui.composable.OnClick
 import com.masoumi.filime.ui.composable.WideButtonWithClickCallback
 import com.masoumi.filime.ui.theme.FilimeTheme
-import com.masoumi.filime.unit1.BusinessCard
-import com.masoumi.filime.unit1.HappyBirthday
+import com.masoumi.filime.unit4.cupcake.Cupcake
 import com.masoumi.filime.unit4.dessertclicker.DessertClicker
 import com.masoumi.filime.unit4.unscramble.UnscrambleGame
 
@@ -40,6 +39,7 @@ class UnitFourMenu : ComponentActivity() {
                             when (it) {
                                 1 -> intent = Intent(this, DessertClicker::class.java)
                                 2 -> intent = Intent(this, UnscrambleGame::class.java)
+                                3 -> intent = Intent(this, Cupcake::class.java)
                                 else -> {
                                     // Do nothing, this shouldn't happen
                                 }
@@ -80,6 +80,11 @@ fun WideButtonList(onButtonClick: OnClick) {
             title = stringResource(id = R.string.unscramble),
             onClick = onButtonClick,
             id = 2
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.cupcake),
+            onClick = onButtonClick,
+            id = 3
         )
     }
 }

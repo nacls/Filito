@@ -6,13 +6,14 @@
     <string name="my_full_name">Maryam Masoumi</string>
     <string name="my_title">Android Developer</string>
     <string name="introduction">This is my demo of the exercises for Jetpack Compose Tutorial. Select which part of the app you want to checkout.</string>
-    <string name="unit_one">Unit 1 Exercise</string>
+    <string name="unit_one">Unit 1 Exercises</string>
     <string name="unit_two">Unit 2 Exercise</string>
     <string name="unit_three">Unit 3 Exercise</string>
-    <string name="unit_four">Unit 4 Exercise</string>
+    <string name="unit_four">Unit 4 Exercises</string>
     <string name="unit_five">Unit 5 Exercise</string>
     <string name="unit_six">Unit 6 Exercise</string>
     <string name="unit_seven">Unit 7 Exercise</string>
+    <string name="unit_eight">Unit 8 Exercise</string>
     <string name="unit_one_intro">Choose which one of unit 1 exercises you want to see.</string>
     <string name="unit_four_intro">Choose which one of unit 4 exercises you want to see.</string>
     <string name="birthday_card">Birthday Card</string>

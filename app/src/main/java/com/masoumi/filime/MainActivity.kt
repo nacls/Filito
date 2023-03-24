@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
                             5 -> {}
                             6 -> {}
                             7 -> {}
+                            8 -> {}
                             else -> {
                                 // Do nothing, this shouldn't happen
                             }
@@ -62,15 +64,17 @@ class MainActivity : ComponentActivity() {
 fun ContentList(
     onButtonClick: OnClick
 ) {
-    Column(
+    LazyColumn(
         modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        RectangularIntroImage()
-        MenuIntro(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            stringResource(id = R.string.introduction)
-        )
-        WideButtonsList(onButtonClick = onButtonClick)
+        item {
+            RectangularIntroImage()
+            MenuIntro(
+                modifier = Modifier, text = stringResource(id = R.string.introduction)
+            )
+            WideButtonsList(onButtonClick = onButtonClick)
+        }
+
     }
 }
 
@@ -126,6 +130,11 @@ fun WideButtonsList(
             title = stringResource(id = R.string.unit_seven),
             onClick = onButtonClick,
             id = 7
+        )
+        WideButtonWithClickCallback(
+            title = stringResource(id = R.string.unit_eight),
+            onClick = onButtonClick,
+            id = 8
         )
     }
 }

@@ -17,6 +17,7 @@
 package com.masoumi.filime.unit4.reply.ui
 
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -43,6 +44,9 @@ fun ReplyDetailsScreen(
     modifier: Modifier = Modifier,
     onBackPressed: () -> Unit = {},
 ) {
+    BackHandler {
+        onBackPressed()
+    }
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
